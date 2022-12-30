@@ -5,11 +5,15 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import 'react-phone-number-input/style.css'
+import { Provider } from "react-redux";
+import { store } from "./Redux/Store/Store";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
   <React.StrictMode>
-    <App />
+  <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>
   </BrowserRouter>
 );

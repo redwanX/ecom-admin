@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 import { BsCartCheck } from "react-icons/bs";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from 'react-router-dom'
+
 const Navbar = () => {
+  const { cart } = useSelector((state) => state);
+  const dispatch = useDispatch();
+
   return (
     <div className="navbar sticky top-0 z-30 bg-white border-b-2 mb-5">
       <div className="flex-1">
@@ -8,8 +14,8 @@ const Navbar = () => {
       </div>
       <div className="flex-none gap-2">
         <div className="indicator mr-5">
-          <span className="indicator-item badge badge-primary">99+</span>
-          <button className="btn btn-sm border rounded-lg bg-accent"><BsCartCheck></BsCartCheck> </button>
+          <span className="indicator-item badge badge-primary">{cart.length}</span>
+          <Link to='/admin/cart'  className="btn btn-sm border rounded-lg bg-accent"><BsCartCheck></BsCartCheck> </Link>
         </div>
         <div className="dropdown dropdown-end">
           <label tabIndex={0} className="btn btn-ghost btn-circle avatar">

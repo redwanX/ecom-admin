@@ -1,8 +1,19 @@
 import React from "react";
 import { useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from "react-redux";
+import { add, remove } from "../../Redux/Reducers/Reducer";
 
 const Item = ({products}) => {
-  console.log(products)
+  const { cart } = useSelector((state) => state);
+  const dispatch = useDispatch();
+
+  const addToCart = () => {
+    dispatch(add(products));
+  };
+
+  const removeFromCart = () => {
+    dispatch(remove(products.id));
+  };
     const {id,title,brand,thumbnail,category,price,stock,description}=products;
     const navigate = useNavigate();
   return (
@@ -25,7 +36,21 @@ const Item = ({products}) => {
       <p className="text-secondary text-md text-justify"><span className="text-primary font-semibold">Description: </span>{description}</p>
        </div>
     <div className="justify-end roun absolute bottom-0 w-full">
-        <button onClick={()=>navigate(`/`)} className="btn rounded-lg btn-secondary w-full">Add to Cart</button>
+    {cart.some((p) => p.id === id) ? (
+            <button
+              className="btn rounded-lg btn-secondary w-full"
+              onClick={removeFromCart}
+            >
+              Remove item
+            </button>
+          ) : (
+            <button
+              className="btn rounded-lg btn-primary w-full"
+              onClick={addToCart}
+            >
+              Add to cart
+            </button>
+          )}
       </div>
   </div>
 
