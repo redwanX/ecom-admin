@@ -5,11 +5,16 @@ import Dashboard from './Pages/Dashboard/Dashboard';
 import Customer from './Pages/Customer/Customer';
 import Products from './Pages/Products/Products';
 import Order from './Pages/Order/Order';
+import Login from './Pages/Auth/Login';
+import Register from './Pages/Auth/Register';
 
 function App() {
   return (
     <div className='bg-accent'>
+    
     <Routes>
+      <Route path='/' element ={<Login></Login>} ></Route>
+      <Route path='/register' element ={<Register></Register>} ></Route>
        <Route path='/admin' element ={<Admin></Admin>} >
        <Route index element={<Dashboard></Dashboard>}></Route>
        <Route path='customer' element={<Customer></Customer>}></Route>
