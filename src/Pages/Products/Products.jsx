@@ -1,17 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, {useState } from 'react'
+import useProduct from '../../Hooks/UseProduct';
 import Table from '../Shared/Table';
 import AddProduct from './AddProduct';
 
 const Products  = () => {
-    const [Products ,setProducts ] = useState([]);
+    const [Products ,setProducts ] = useProduct();
     const [modalOpen ,setModalOpen ] = useState(false);
-    useEffect(()=>{
-        fetch("https://dummyjson.com/products?select=id,thumbnail,title,brand,category,price,stock")
-        .then((response) => response.json())
-        .then((data) => setProducts (data.products));
-        
-    },[])
-
     const columns = [
         { name: 'id', header: 'id', minWidth: 50, defaultFlex: 2 },
         { name: 'thumbnail', header: 'Image', minWidth: 50, defaultFlex: 2,render: ({ value })=> <img className='h-10 w-10 p-2' src={value}></img>},

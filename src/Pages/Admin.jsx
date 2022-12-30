@@ -25,7 +25,7 @@ const Admin = () => {
           <HiMenuAlt1 className="h-3/4 w-3/4"></HiMenuAlt1>
          
         </label>
-        <div className="p-4">
+        <div>
         <Outlet></Outlet>
         </div>
       </div>
