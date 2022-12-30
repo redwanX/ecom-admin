@@ -1,11 +1,14 @@
 import React, {useState } from 'react'
 import useProduct from '../../Hooks/UseProduct';
+import Loading from '../Shared/Loading';
 import Table from '../Shared/Table';
 import AddProduct from './AddProduct';
 
 const Products  = () => {
-    const [Products ,setProducts ] = useProduct();
+    const [Products ,setProducts,loading ] = useProduct();
     const [modalOpen ,setModalOpen ] = useState(false);
+
+    if(loading)return <Loading></Loading>
     const columns = [
         { name: 'id', header: 'id', minWidth: 50, defaultFlex: 2 },
         { name: 'thumbnail', header: 'Image', minWidth: 50, defaultFlex: 2,render: ({ value })=> <img className='h-10 w-10 p-2' src={value}></img>},
