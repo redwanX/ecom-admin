@@ -61,14 +61,14 @@ const Admin = () => {
           </Link>
           <hr className="my-2" />
 
-          <button className=" p-3 rounded-sm w-full hover:border-l-4 hover:border-primary flex justify-between items-center">
+          <Link to='/admin/order' className=" p-3 rounded-sm w-full hover:border-l-4 hover:border-primary flex justify-between items-center">
             <span className="flex justify-center items-center">
               <AiOutlineShoppingCart></AiOutlineShoppingCart>
               <li className="ml-2">ORDERS</li>
             </span>
 
             <RiArrowDropRightLine className="h-8 w-8 p-0 m-0"></RiArrowDropRightLine>
-          </button>
+          </Link>
 
           <Link to='/admin/products' className=" p-3 rounded-sm w-full hover:border-l-4 hover:border-primary flex justify-between items-center">
             <span className="flex justify-center items-center">

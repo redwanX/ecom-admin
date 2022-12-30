@@ -4,6 +4,7 @@ import Admin from './Pages/Admin';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import Customer from './Pages/Customer/Customer';
 import Products from './Pages/Products/Products';
+import Order from './Pages/Order/Order';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
        <Route index element={<Dashboard></Dashboard>}></Route>
        <Route path='customer' element={<Customer></Customer>}></Route>
        <Route path='products' element={<Products></Products>}></Route>
+       <Route path='order' element={<Order></Order>}></Route>
        </Route>
     </Routes>
     </div>
